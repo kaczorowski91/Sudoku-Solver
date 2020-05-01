@@ -6,12 +6,10 @@ public class Processor {
 
     private final Board board;
     private final Algorithm algorithm;
-
     private boolean endChangeValue = false;
     private boolean endLoop = false;
     private String sudoku = "SUDOKU";
     public static int SIZE = 9;
-
 
     Scanner scanner = new Scanner(System.in);
 
@@ -31,6 +29,7 @@ public class Processor {
         while (!this.endChangeValue)
             this.changeValue();
 
+
         if (algorithm.checkSudokuSolved()) {
             System.out.println("SOLUTION:");
             System.out.println(board);
@@ -38,21 +37,12 @@ public class Processor {
         } else {
             System.out.println("Too little data to find a solution.");
             System.out.println("If you want entry more data press 1");
-            System.out.println("If you want complete board random data press 2");
-            System.out.println("If you want quit press 3");
+            System.out.println("If you want quit press 2");
             String userInput = scanner.nextLine();
-
             if (userInput.equals("1")) {
                 System.out.println("You can continue entering data: ");
                 this.endChangeValue = false;
-
             } else if (userInput.equals("2")) {
-                Board copyBoard = algorithm.createDeepCopy();
-                algorithm.createRandomData();
-
-
-            } else if (userInput.equals("3")) {
-                System.out.println(3);
                 System.out.println("Sudoku Solver ended work ");
                 System.out.println("Bye bye, see you next time :)");
                 this.endChangeValue = true;
@@ -70,7 +60,6 @@ public class Processor {
         System.out.println("When data are complete, write 'SUDOKU' to get solution of sudoku");
         System.out.println(board + "\n");
     }
-
 
     public void changeValue() {
         String userInput = scanner.nextLine();

@@ -1,7 +1,5 @@
 package pl.kaczorowski.sudoku;
 
-import java.util.Random;
-
 public class Algorithm {
 
     final private Board board;
@@ -29,7 +27,6 @@ public class Algorithm {
         }
         return true;
     }
-
 
     public void findValueInFieldColumnAndRow() {
 
@@ -176,46 +173,5 @@ public class Algorithm {
             }
         }
     }
-
-    public Board createDeepCopy() {
-        System.out.println("DEEP COPY Algorithm after check");
-        try {
-            Board deepCopySudokuBoards = board.deepCopy();
-            return deepCopySudokuBoards;
-        } catch (CloneNotSupportedException e) {
-            System.out.println(e);
-        }
-        return null; // JAK TO UGRYść
-    }
-
-    public void createRandomData() {
-
-        Random random = new Random();
-
-        System.out.println("createRandomData");
-
-        int rowNumber = random.nextInt(board.getRowList().size());
-
-        System.out.println("rowNumber: " + rowNumber + " board.getRowList().size(): " + board.getRowList().size());
-
-        int elementInRowNumber = random.nextInt(board.getRowList().get(rowNumber).getElementList().size());
-
-        System.out.println("elementInRowNumber: " + elementInRowNumber + " board.getRowList().get(rowNumber).getElementList().size(): " +
-                board.getRowList().get(rowNumber).getElementList().size());
-
-
-        int elementToSolve = random.nextInt(board.getRowList().get(rowNumber)
-                .getElementList().get(elementInRowNumber).getListToSolve().size()) + 1;
-
-
-        System.out.println("rowNumber: " + (rowNumber + 1) + " elementInRowNumber: " + (elementInRowNumber + 1) +
-                " elementToSolve: " + elementToSolve);
-
-        board.getRowList().get(rowNumber).getElementList().get(elementInRowNumber).setValue(elementToSolve);
-        board.getRowList().get(rowNumber).getElementList().get(elementInRowNumber).getListToSolve().clear();
-        this.removeValueFromListToSolve();
-        System.out.println(board);
-    }
-
 
 }

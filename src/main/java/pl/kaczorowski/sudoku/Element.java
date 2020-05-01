@@ -25,7 +25,6 @@ public class Element {
         return listToSolve;
     }
 
-
     @Override
     public String toString() {
         return "" + value;

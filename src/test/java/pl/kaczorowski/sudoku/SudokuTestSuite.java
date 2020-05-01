@@ -7,7 +7,7 @@ import org.junit.Test;
 public class SudokuTestSuite {
 
     @Test
-    public void Test1() {
+    public void exampleSolutionTest() {
         //Given
         Board sudokuBoard = new Board();
         Algorithm algorithm = new Algorithm(sudokuBoard);
@@ -105,7 +105,6 @@ public class SudokuTestSuite {
 9 7 9
 9 9 5
         */
-
         //When
         Assert.assertEquals(1, sudokuBoard.getRowList().get(0).getElementList().get(1).getValue());
         Assert.assertEquals(9, sudokuBoard.getRowList().get(1).getElementList().get(2).getValue());
@@ -118,7 +117,4 @@ public class SudokuTestSuite {
         Assert.assertEquals(4, sudokuBoard.getRowList().get(8).getElementList().get(7).getValue());
 
     }
-
-
-
 }
